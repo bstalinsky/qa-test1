@@ -36,7 +36,7 @@ public class Looops {
         //------------------IF-ELSE------------------
         for (String name : studentNames){
             if (name.startsWith("J")){
-                System.out.println(name + " This name start with J® ");
+                System.out.println(name + " This name start with J ");
             } else {
                 System.out.println(name + " This name doesn't start with J");
             }
