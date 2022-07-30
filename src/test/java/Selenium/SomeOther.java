@@ -1,3 +1,5 @@
+package Selenium;
+
 import org.junit.Test;
 
 public class SomeOther {

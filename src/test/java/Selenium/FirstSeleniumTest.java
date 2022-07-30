@@ -11,6 +11,8 @@ public class FirstSeleniumTest {
         driver.get("http://qaguru.lv/");
 
 
+
+
     }
 
 
