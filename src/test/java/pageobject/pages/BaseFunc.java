@@ -41,7 +41,6 @@ public class BaseFunc {
             System.out.println("Can't click");
             we.click();
         }
-
     }
 
     public void type(By locator, String text){
@@ -53,10 +52,13 @@ public class BaseFunc {
     }
 
     public void pressKey(By locator, Keys key){
-        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        WebElement we = driver.findElement(locator);
-
-        we.sendKeys(key);
+//        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+//        WebElement we = driver.findElement(locator);
+//
+//        we.sendKeys(key);
+    }
+    public WebElement findElement(By locator){
+        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 }
 
