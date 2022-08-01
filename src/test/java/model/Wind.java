@@ -1,22 +1,22 @@
 package model;
 
 public class Wind {
-    private long speed;
-    private long def;
+    private double speed;
+    private double deg;
 
-    public long getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(long speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 
-    public long getDef() {
-        return def;
+    public double getDeg() {
+        return deg;
     }
 
-    public void setDef(long def) {
-        this.def = def;
+    public void setDeg(double deg) {
+        this.deg = deg;
     }
 }

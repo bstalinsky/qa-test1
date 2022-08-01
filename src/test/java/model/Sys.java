@@ -3,7 +3,7 @@ package model;
 public class Sys {
     private int type;
     private int id;
-    private long message;
+    private double message;
     private String country;
     private int sunrise;
     private int sunset;
@@ -24,11 +24,11 @@ public class Sys {
         this.id = id;
     }
 
-    public long getMessage() {
+    public double getMessage() {
         return message;
     }
 
-    public void setMessage(long message) {
+    public void setMessage(double message) {
         this.message = message;
     }
 
