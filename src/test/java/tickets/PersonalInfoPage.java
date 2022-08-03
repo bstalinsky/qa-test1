@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class PersonalInfoPage {
     private final By SELECTED_AIRPORT = By.xpath(".//span[@class = 'bTxt']");
-    private BaseFunc baseFunc;
+    private final BaseFunc baseFunc;
     private final By NAME_INPUT = By.id("name");
     private final By SURNAME_INPUT = By.id("surname");
     private final By DISCOUNT_INPUT = By.id("discount");
@@ -19,6 +19,9 @@ public class PersonalInfoPage {
     private final By CHILDREN_COUNT_INPUT = By.id("children");
     private final By BAGS_COUNT_INPUT = By.id("bugs");
     private final By FLIGHT_SELECT = By.id("flight");
+    private final By GET_PRICE_LINK = By.xpath(".//span[@onclick = 'setLang();']");
+    private final By PASSENGER_NAME = By.xpath(".//div[@id = 'response']/span");
+    private final By BOOK_BTN = By.id("Book");
 
     public PersonalInfoPage(BaseFunc baseFunc){
         this.baseFunc = baseFunc;
@@ -37,10 +40,21 @@ public class PersonalInfoPage {
         baseFunc.type(NAME_INPUT, params.get("first_name"));
         baseFunc.type(SURNAME_INPUT, params.get("last_name"));
         baseFunc.type(DISCOUNT_INPUT, params.get("discount"));
-        baseFunc.type(ADULTS_COUNT_INPUT, params.get("adults"));
-        baseFunc.type(CHILDREN_COUNT_INPUT, params.get("kids"));
-        baseFunc.type(BAGS_COUNT_INPUT, params.get("bags"));
+        baseFunc.type(ADULTS_COUNT_INPUT, Integer.parseInt(params.get("adults")));
+        baseFunc.type(CHILDREN_COUNT_INPUT, Integer.parseInt(params.get("kids")));
+        baseFunc.type(BAGS_COUNT_INPUT, Integer.parseInt(params.get("bags")));
         baseFunc.selectByVisibleText(FLIGHT_SELECT, params.get("flight"));
+        }
+        public void submit_form(){
+        baseFunc.click(GET_PRICE_LINK);
+        }
+
+        public String getPassengerName(){
+        return baseFunc.findElement(PASSENGER_NAME).getText().replace("!", "");
+        }
+
+        public void book(){
+        baseFunc.click(BOOK_BTN);
         }
 
     }

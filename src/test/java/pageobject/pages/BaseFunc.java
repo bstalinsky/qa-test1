@@ -59,6 +59,9 @@ public class BaseFunc {
         inputField.clear();
         inputField.sendKeys(text);
     }
+    public void type(By locator, int text){
+    type(locator, String.valueOf(text));
+    }
 
     public void pressKey(By locator, Keys key){
         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
