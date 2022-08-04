@@ -21,7 +21,7 @@ public class PersonalInfoPage {
     private final By FLIGHT_SELECT = By.id("flight");
     private final By GET_PRICE_LINK = By.xpath(".//span[@onclick = 'setLang();']");
     private final By PASSENGER_NAME = By.xpath(".//div[@id = 'response']/span");
-    private final By BOOK_BTN = By.id("Book");
+    private final By BOOK_BTN = By.id("book2");
 
     public PersonalInfoPage(BaseFunc baseFunc){
         this.baseFunc = baseFunc;

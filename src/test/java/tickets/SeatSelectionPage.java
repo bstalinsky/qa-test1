@@ -1,11 +1,12 @@
 package tickets;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pageobject.pages.BaseFunc;
 
 public class SeatSelectionPage {
     private final By SEAT = By.xpath(".//div[@class = 'seat']");
-    private final By SEAT_NR = By.xpath(".//[@class = 'line']");
+    private final By SEAT_NR = By.xpath(".//div[@class = 'line']");
     private final By BOOK_BT = By.id("book3");
     private BaseFunc baseFunc;
 
@@ -13,8 +14,9 @@ public class SeatSelectionPage {
         this.baseFunc = baseFunc;
     }
     public void selectSeat(int seatNr){
-        for (WebElement we:baseFunc.findElements(SEAT) {
-            if (Integer.parseInt(we.getText()) == seatNr {
+        baseFunc.waitUntilElementsCountAtLeast(SEAT, 10);
+        for (WebElement we : baseFunc.findElements(SEAT)) {
+            if (Integer.parseInt(we.getText()) == seatNr) {
                 we.click();
                 break;
             }

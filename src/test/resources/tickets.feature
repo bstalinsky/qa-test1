@@ -10,7 +10,7 @@ Feature: Tickets booking system
       | adults     | 2          |
       | kids       | 2          |
       | bags       | 2          |
-      | flight     | 14-05-2022 |
+      | flight     | 14-05-2018 |
 
     And home page opened
 

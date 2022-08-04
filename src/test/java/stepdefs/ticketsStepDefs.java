@@ -91,18 +91,19 @@ public class ticketsStepDefs {
        Assertions.assertEquals(personaInfo.get("first_name"), infoPage.getPassengerName(), "Wrong...");
     }
 
-    @Then ("selecting seat")
+    @When ("selecting seat")
     public void selecting_seat_number(){
-    seatSelectionPage.selectSeat(seatNr);
+
+        seatSelectionPage.selectSeat(seatNr);
     }
     @Then("submitting seat")
     public void check_seat_nr(){
-    Assertions.assertEquals(seatNr, seatSelectionPage.getSelectedSeat(), "Wrong ....");
+//    Assertions.assertEquals(seatNr, seatSelectionPage.getSelectedSeat(), "Wrong ....");
 
     }
     @Then ("sucessful message appears")
-    public void sucess_message_appears(){
-    Assertions.assertTrue(successfulBookingPage.isSuccessMessagePresents(), "There is no success message!");
+    public void success_message_appears(){
+        Assertions.assertTrue(successfulBookingPage.isSuccessMessagePresents(), "There is no success message!");
     }
 
 }

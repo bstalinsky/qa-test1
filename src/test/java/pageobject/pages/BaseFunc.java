@@ -85,5 +85,9 @@ public class BaseFunc {
         Select select = new Select(findElement(locator));
         select.selectByVisibleText(value);
     }
+
+    public void waitUntilElementsCountAtLeast(By locator, int count) {
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(locator, count));
+    }
 }
 
