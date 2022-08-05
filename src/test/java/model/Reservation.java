@@ -1,68 +1,129 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.commons.lang3.RandomStringUtils;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Reservation {
-    public String first_name;
+    public int id;
+    public String name;
+    public String surname;
+    @JsonProperty("afrom")
+    private String from;
+    @JsonProperty("ato")
+    public String to;
+    @JsonProperty("bugs")
+    public int bagCount;
+    public String discount;
+    public int children;
+    @JsonProperty("flight")
+    public int flightDay;
+    private String fullFlightDay;
+    @JsonProperty("adults")
+    public int adultCount;
+    public int seat;
 
-    public String getFirst_name() {
-        return first_name;
+
+
+    public int getId() {
+        return id;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getName() {
+        return name;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setName(String name) {
+        if (name.equals("random")) {
+            this.name = RandomStringUtils.randomAlphabetic(15);
+        } else {
+            this.name = name;
+        }
     }
 
-    public String getDiscount() {
-        return discount;
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
+    }
+
+    public int getBagCount() {
+        return bagCount;
+    }
+
+    public void setBagCount(int bagCount) {
+        this.bagCount = bagCount;
+    }
+
+    public String getDiscount(String discount) {
+        return this.discount;
     }
 
     public void setDiscount(String discount) {
         this.discount = discount;
     }
 
-    public int getAdults() {
-        return adults;
+    public int getChildren() {
+        return children;
     }
 
-    public void setAdults(int adults) {
-        this.adults = adults;
+    public void setChildren(int children) {
+        this.children = children;
     }
 
-    public int getKids() {
-        return kids;
+    public int getFlightDay() {
+        return flightDay;
     }
 
-    public void setKids(int kids) {
-        this.kids = kids;
+    public void setFlightDay(int flightDay) {
+        this.flightDay = flightDay;
     }
 
-    public int getBags() {
-        return bags;
+    public String getFullFlightDay() {
+        return fullFlightDay;
     }
 
-    public void setBags(int bags) {
-        this.bags = bags;
+    public void setFullFlightDay(String fullFlightDay) {
+        this.fullFlightDay = fullFlightDay;
+        this.flightDay = Integer.parseInt(fullFlightDay.split("-")[0]);
     }
 
-    public int getFlight() {
-        return flight;
+    public int getAdultCount() {
+        return adultCount;
     }
 
-    public void setFlight(int flight) {
-        this.flight = flight;
+    public void setAdultCount(int adultCount) {
+        this.adultCount = adultCount;
     }
 
-    public String last_name;
-    public String discount;
-    public int adults;
-    public int kids;
-    public int bags;
-    public int flight;
+    public int getSeat() {
+        return seat;
+    }
+
+    public void setSeat(int seat) {
+        this.seat = seat;
+    }
 }

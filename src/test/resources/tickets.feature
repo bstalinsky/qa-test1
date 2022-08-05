@@ -4,9 +4,9 @@ Feature: Tickets booking system
     Given airports "RIX" and "SVO"
     And seat number is 22
     Given personal info is:
-      | first_name | Bohdan     |
-      | last_name  | Stalinskyi |
-      | discount   | Tester     |
+      | first_name | random     |
+      | last_name  | Tester     |
+      | discount   | none       |
       | adults     | 2          |
       | kids       | 2          |
       | bags       | 2          |
@@ -27,3 +27,6 @@ Feature: Tickets booking system
 
     When we are making final book
     Then sucessful message appears
+
+    When We are requesting tickets data
+    Then reservation exists in the list with correct data

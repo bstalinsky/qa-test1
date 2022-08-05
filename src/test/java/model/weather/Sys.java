@@ -1,4 +1,4 @@
-package model;
+package model.weather;
 
 public class Sys {
     private int type;

@@ -23,8 +23,9 @@ public class SeatSelectionPage {
         }
     }
     public int getSelectedSeat(){
-        return Integer.parseInt(baseFunc.findElement(SEAT_NR).getText().split(":")[1]);
-    }
+            return Integer.parseInt(baseFunc.findElement(SEAT_NR).getText().split(": ")[1]);
+        }
+
     public void book(){
         baseFunc.click(BOOK_BT);
     }

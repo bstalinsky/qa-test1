@@ -1,5 +1,7 @@
 package pageobject.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,9 +14,11 @@ import java.util.List;
 public class BaseFunc {
     private static WebDriver driver;
     private static WebDriverWait wait;
+    private final Logger LOGGER = LogManager.getLogger(this.getClass());
 
 
     public BaseFunc() {
+        LOGGER.info("Starting Web Browser");
         System.setProperty("webdriver.chrome.driver", "/Users/stalinskyi/Desktop/TESTING/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -30,7 +34,6 @@ public class BaseFunc {
 //            url = "http://" + url;
 //        }
 //       true -> false    ! = не , && = и , || = или
-
         if (!url.startsWith("http://") && !url.startsWith("https://")) {
             url = "http://" + url;
         }
@@ -38,6 +41,7 @@ public class BaseFunc {
     }
 
     public void click(By locator) {
+        LOGGER.info("Clicking on element");
         wait.until(ExpectedConditions.elementToBeClickable(locator));
         WebElement we = driver.findElement(locator);
         try {

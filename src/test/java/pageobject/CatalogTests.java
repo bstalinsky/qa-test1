@@ -4,6 +4,8 @@ import org.junit.Test;
 import pageobject.pages.BaseFunc;
 import pageobject.pages.HomePage;
 
+import static pageobject.pages.BaseFunc.*;
+
 public class CatalogTests {
     private final String HOME_PAGE_URL = "1a.lv";
     private final String PRODUCT_FIND = "Apple";

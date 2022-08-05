@@ -1,4 +1,4 @@
-package model;
+package model.weather;
 
 public class Main {
     private long temp;

@@ -1,6 +1,7 @@
 package tickets;
 
 import io.cucumber.java.it.Ma;
+import model.Reservation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pageobject.pages.BaseFunc;
@@ -36,14 +37,14 @@ public class PersonalInfoPage {
         }
         return result;
         }
-        public void  fillPersonalInfoForm(Map<String,String>params){
-        baseFunc.type(NAME_INPUT, params.get("first_name"));
-        baseFunc.type(SURNAME_INPUT, params.get("last_name"));
-        baseFunc.type(DISCOUNT_INPUT, params.get("discount"));
-        baseFunc.type(ADULTS_COUNT_INPUT, Integer.parseInt(params.get("adults")));
-        baseFunc.type(CHILDREN_COUNT_INPUT, Integer.parseInt(params.get("kids")));
-        baseFunc.type(BAGS_COUNT_INPUT, Integer.parseInt(params.get("bags")));
-        baseFunc.selectByVisibleText(FLIGHT_SELECT, params.get("flight"));
+        public void  fillPersonalInfoForm(Reservation reservation){
+        baseFunc.type(NAME_INPUT, reservation.getName());
+        baseFunc.type(SURNAME_INPUT, reservation.getSurname());
+        baseFunc.type(DISCOUNT_INPUT, reservation.getDiscount(""));
+        baseFunc.type(ADULTS_COUNT_INPUT, reservation.getAdultCount());
+        baseFunc.type(CHILDREN_COUNT_INPUT, reservation.getChildren());
+        baseFunc.type(BAGS_COUNT_INPUT, reservation.getBagCount());
+        baseFunc.selectByVisibleText(FLIGHT_SELECT, reservation.getFullFlightDay());
         }
         public void submit_form(){
         baseFunc.click(GET_PRICE_LINK);
